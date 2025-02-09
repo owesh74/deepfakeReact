@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import '../DetectionApp.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const FileUploader = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -54,12 +56,42 @@ const FileUploader = () => {
     handleFiles(file);
   };
 
+
+  //LocalHost : 
+  // const handleImageCheck = async () => {
+  //   if (!selectedFile || !previewUrl) return;
+    
+  //   setLoading(true);
+  //   try {
+  //     const response = await fetch('http://127.0.0.1:5000/upload_image', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         image: previewUrl
+  //       }),
+  //     });
+  //     const data = await response.json();
+  //     if (data.score) {
+  //       data.score = data.score * 10;
+  //     }
+  //     setResult(data);
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //     setResult({ error: 'Failed to process image' });
+  //   }
+  //   setLoading(false);
+  // };
+
+
+
   const handleImageCheck = async () => {
     if (!selectedFile || !previewUrl) return;
     
     setLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:5000/upload_image', {
+      const response = await fetch('https://deepfakebackend.vercel.app/upload_image', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,6 +111,7 @@ const FileUploader = () => {
     }
     setLoading(false);
   };
+
 
   const renderResult = () => {
     if (!result) return null;
@@ -117,14 +150,25 @@ const FileUploader = () => {
 
   return (
     <div className="container">
-      <div className="spectacledcoder-navbar">
+      {/* <div className="spectacledcoder-navbar">
         <div className="brand">
-          <h1>DeepFake Detector</h1>
+        <a className="navbar-brand" href="/" style={{ color: '#7b2cbf' , fontSize: '22px'  }}>
+            <strong>DeepFake Detector <i className="bi bi-shield-check"></i></strong>
+          </a>
         </div>
         <ul>
           
         </ul>
-      </div>
+      </div> */}
+   <nav className="navbar navbar-expand-lg p-4" style={{ backgroundColor: '#222222' }}>
+        <div className="container">
+      
+          <a className="navbar-brand" href="/" style={{ color: '#7b2cbf' }}>
+            <strong>DeepFake Detector <i className="bi bi-shield-check"></i></strong>
+          </a>
+
+        </div>
+      </nav>
 
       <div className="section">
         <h2>Check Image for Deepfake</h2>

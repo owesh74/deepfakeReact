@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
+
 const HomePage = () => {
   return (
     <div style={{ backgroundColor: '#1e1e1e', color: 'white' }}>
@@ -51,20 +52,14 @@ const HomePage = () => {
               <div className="carousel-inner">
                 <div className="carousel-item active">
                 <img alt="Hai Kuch"
-  src="https://deepfake-detect.com/assets/img/DeepfakeDetection_Facebook.gif" 
+  src="https://owesh74.github.io/assets/DeepfakeDe.gif" 
   className="w-100" 
   style={{ border: '10px solid #7b2cbf', backgroundColor: 'transparent' }} 
 />
 
 
                 </div>
-                <div className="carousel-item">
-                  <img 
-                    src="https://i.postimg.cc/sXg0tFzk/village.jpg" 
-                    className="d-block w-100" 
-                    alt="Deepfake Detection" 
-                  />
-                </div>
+              
               </div>
             </div>
           </div>

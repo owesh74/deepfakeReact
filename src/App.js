@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import DetectionApp from './components/DetectionApp';
 import AboutPage from './components/AboutPage';
 
+
 function App() {
   return (
     <Router>

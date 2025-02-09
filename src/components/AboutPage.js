@@ -9,7 +9,7 @@ const AboutPage = () => {
           Our deepfake detection system is a web service built using Flask, and it checks images to see if they’re manipulated or fake (i.e., deepfakes). 
         </p>
         <p style={{ fontSize: '1.2rem' }}>
-          This project was created by Owesh Khan, Ayush Mishra, Johel Pathankar and Sahil Gangane (from Team Witchers).
+          This project was created by Owesh Khan.
         </p>
         <h2 style={{ color: '#7b2cbf' }}>Web Server with Flask:</h2>
         <p style={{ fontSize: '1.2rem' }}>

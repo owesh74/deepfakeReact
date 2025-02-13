@@ -325,6 +325,11 @@ pre {
   .spectacledcoder-navbar ul {
     display: none;
   }
+  .hero {
+    
+    height: 45vh;
+   
+  }
 
   .drag-file-area {
     width: 100%;

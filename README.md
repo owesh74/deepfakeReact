@@ -9,17 +9,12 @@ A web application for detecting deepfake images using Flask backend and React fr
 - Detailed analysis metrics (noise, brightness, edge density)
 - Responsive React interface with Bootstrap
 
-# DeepFake Detector 🛡️
+## 🚀 Live Demo
 
-A web application for detecting deepfake images using Flask backend and React frontend.
+**[View Live Application](https://deep-fake-detector-owesh74s-projects.vercel.app/)**
 
-## Features
-
-- Upload images via drag & drop or file browser
-- Real-time deepfake detection with confidence scores
-- Detailed analysis metrics (noise, brightness, edge density)
-- Responsive React interface with Bootstrap
-
+*Try the app without installation - your tasks will be saved locally in your browser!*
+ 
 ## Tech Stack
 
 **Backend:** Flask, PIL, NumPy, Flask-CORS  

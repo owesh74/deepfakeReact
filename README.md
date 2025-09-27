@@ -10,6 +10,12 @@ A full-stack web application designed to detect deepfake images and analyze text
 - **Detailed Analysis**: View specific metrics used in analysis
 - **Fake News API**: Foundational endpoint for future text analysis
 
+## 🚀 Live Demo
+
+**[View Live Application](https://deep-fake-detector-owesh74s-projects.vercel.app/)**
+
+*Try the app without installation - your tasks will be saved locally in your browser!*
+
 ## Technology Stack
 
 - **Frontend**: React, React Router, Bootstrap, CSS

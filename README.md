@@ -29,8 +29,8 @@ The backend is hosted in a separate repository.
 
 For local development:
 ```bash
-git clone <backend-repo-url>
-cd deepfake-backend
+git clone <https://github.com/owesh74/deepfakeflask.git>
+cd deepfakeflask
 pip install flask flask-cors pillow numpy
 python app.py
 ```
@@ -38,6 +38,8 @@ Runs on `http://localhost:5000`
 
 ### Frontend
 ```bash
+git clone <https://github.com/owesh74/deepfakeReact.git>
+cd deepfakeReact
 npm install react react-dom react-router-dom bootstrap
 npm start
 ```

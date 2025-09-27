@@ -1,114 +1,61 @@
-Deepfake & Fake News Detector
-A full-stack web application designed to detect deepfake images and analyze text for fake news. The project features a React frontend for a seamless user experience and a Python Flask backend for processing and analysis.
+# Deepfake & Fake News Detector 🛡️
 
-Table of Contents
-Features
+A full-stack web application designed to detect deepfake images and analyze text for fake news. Features a React frontend and Python Flask backend for processing and analysis.
 
-Technology Stack
+## Features
 
-How It Works
+- **Deepfake Image Detection**: Upload images via drag-and-drop or file selector
+- **Statistical Image Analysis**: Analyzes noise level, brightness, and edge density
+- **Instant Feedback**: Clear results with confidence scores
+- **Detailed Analysis**: View specific metrics used in analysis
+- **Fake News API**: Foundational endpoint for future text analysis
 
-API Endpoints
+## Technology Stack
 
-Getting Started
+- **Frontend**: React, React Router, Bootstrap, CSS
+- **Backend**: Python, Flask, Flask-CORS
+- **Image Processing**: Pillow (PIL), NumPy
 
-Prerequisites
+## How It Works
 
-Backend Setup
+1. **Image Upload**: User uploads image, converted to base64 string
+2. **API Request**: Frontend sends base64 to Flask backend
+3. **Backend Analysis**:
+   - Decodes image to NumPy array
+   - Calculates statistical metrics:
+     - **Noise Level**: Standard deviation of pixel values
+     - **Average Brightness**: Mean pixel intensity
+     - **Edge Density**: Standard deviation of image gradient
+   - Uses rule-based system with predefined thresholds
+   - Flags as deepfake if ≥2 suspicious markers detected
+4. **Display Results**: Analysis sent back to frontend
 
-Frontend Setup
+## API Endpoints
 
-Usage
-
-Future Improvements
-
-Features
-Deepfake Image Detection: Upload an image through a simple drag-and-drop interface or file selector.
-
-Statistical Image Analysis: The backend uses a heuristic approach to analyze image properties like noise level, brightness, and edge density to identify potential manipulations.
-
-Instant Feedback: Receive a clear result indicating whether an image is likely authentic or a deepfake, complete with a confidence score.
-
-Detailed Analysis: View the specific metrics used in the analysis for a more in-depth understanding.
-
-Fake News API (Placeholder): Includes a foundational API endpoint for future implementation of a text-based fake news detection model.
-
-Technology Stack
-Frontend: React, React Router, Bootstrap, CSS
-
-Backend: Python, Flask, Flask-CORS
-
-Image Processing: Pillow (PIL), NumPy
-
-How It Works
-The application is split into two main parts: a frontend client and a backend server.
-
-Image Upload: The user uploads an image on the React frontend. The image is converted to a base64 string.
-
-API Request: The frontend sends the base64 string to the /upload_image endpoint on the Flask backend.
-
-Backend Analysis:
-
-The backend decodes the image and converts it into a NumPy array.
-
-It calculates several basic statistical metrics:
-
-Noise Level: The standard deviation of pixel values.
-
-Average Brightness: The mean of all pixel values.
-
-Edge Density: The standard deviation of the image's gradient.
-
-It uses a simple rule-based system to check if these metrics cross predefined thresholds. An image is flagged as a potential deepfake if it triggers two or more suspicious markers.
-
-Display Results: The analysis result is sent back to the React frontend and displayed to the user in a clean, easy-to-understand format.
-
-Note: The current deepfake detection logic is based on statistical heuristics and is not a machine learning model. It serves as a proof-of-concept for basic image analysis.
-
-API Endpoints
-The Flask backend provides the following endpoints:
-
-GET /
-Description: A root endpoint to check if the API is running.
-
-Response:
-
-JSON
-
+### `GET /`
+Check if API is running
+```json
 "Fake News & Deepfake Detection API is running!"
-POST /detect_fake_news
-Description: A placeholder endpoint for detecting fake news from a text input.
+```
 
-Request Body:
-
-JSON
-
+### `POST /detect_fake_news`
+Analyze text for fake news (placeholder)
+```json
 {
-    "text": "This is a news article text..."
+  "text": "This is a news article text..."
 }
-Success Response:
+```
 
-JSON
-
+### `POST /upload_image`
+Analyze image for deepfake characteristics
+```json
 {
-    "text": "This is a news article text...",
-    "is_fake": false,
-    "confidence": 0.85
+  "image": "data:image/jpeg;base64,..."
 }
-POST /upload_image
-Description: Analyzes an uploaded image for deepfake characteristics.
+```
 
-Request Body:
-
-JSON
-
-{
-    "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ..."
-}
-Success Response:
-
-JSON
-
+**Response:**
+```json
 {
   "is_deepfake": true,
   "confidence": 0.7,
@@ -120,93 +67,55 @@ JSON
     "suspicious_markers": 2
   }
 }
-Error Response:
+```
 
-JSON
+## Getting Started
 
-{
-  "error": "Image analysis failed: ...",
-  "is_deepfake": null,
-  "confidence": 0
-}
-Getting Started
-Follow these instructions to get a local copy of the project up and running.
+### Prerequisites
+- Python 3.7+
+- Node.js and npm
 
-Prerequisites
-Python 3.7+
-
-Node.js and npm
-
-Backend Setup
-Clone the repository:
-
-Bash
-
-git clone <your-repository-url>
-cd <your-repository-url>/backend-folder
-Create a virtual environment:
-
-Bash
-
+### Backend Setup
+```bash
+git clone <repository-url>
+cd backend-folder
 python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-Install dependencies:
-Create a requirements.txt file with the following content:
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
-Flask
-Flask-Cors
-Pillow
-numpy
-Then run:
+# Install dependencies
+pip install Flask Flask-Cors Pillow numpy
 
-Bash
-
-pip install -r requirements.txt
-Run the Flask server:
-
-Bash
-
+# Run server
 python app.py
-The backend will be running at http://127.0.0.1:5000.
+```
+Backend runs at `http://127.0.0.1:5000`
 
-Frontend Setup
-Navigate to the frontend directory:
-
-Bash
-
-cd ../frontend-folder
-Install npm packages:
-
-Bash
-
+### Frontend Setup
+```bash
+cd frontend-folder
 npm install
-Start the React development server:
-
-Bash
-
 npm start
-The application will open in your browser at http://localhost:3000.
+```
+Frontend runs at `http://localhost:3000`
 
-Note: The frontend code is configured to make API calls to a deployed backend. To use your local backend, you'll need to change the fetch URL in the FileUploader.js component to http://127.0.0.1:5000/upload_image.
+**Note**: Change fetch URL in `FileUploader.js` to `http://127.0.0.1:5000/upload_image` for local backend.
 
-Usage
-Navigate to the Detection App page.
+## Usage
 
-Drag and drop an image file onto the designated area or click "browse file" to select an image from your device.
+1. Navigate to Detection App page
+2. Drag & drop image or click "browse file"
+3. Preview image appears
+4. Click "Check Image" to analyze
+5. View results (authentic/deepfake)
+6. Click "Show Details" for raw analysis data
 
-An image preview will be displayed.
+## Future Improvements
 
-Click the "Check Image" button to start the analysis.
+- [ ] **Machine Learning Model**: Replace heuristics with CNN (EfficientNet/ResNet)
+- [ ] **Fake News Detection**: Implement NLP models (BERT, TF-IDF)
+- [ ] **Enhanced UI/UX**: Improve interface and visual feedback
+- [ ] **Video Support**: Extend to video deepfake detection
 
-The result will be displayed below the button, indicating whether the image is authentic or a potential deepfake.
+---
 
-Click "Show Details" to see the raw JSON data from the analysis.
-
-Future Improvements
-[ ] Integrate a Machine Learning Model: Replace the heuristic-based detection with a robust deep learning model (e.g., a CNN like EfficientNet or ResNet) for higher accuracy.
-
-[ ] Implement Fake News Detection: Develop the fake news functionality using NLP models (e.g., BERT, TF-IDF with Logistic Regression) to analyze text.
-
-[ ] Enhance UI/UX: Improve the user interface and add more visual feedback during the analysis process.
-
-[ ] Add Video Support: Extend the functionality to allow users to upload and analyze video files for deepfakes.
+**Note**: Current detection uses statistical heuristics as proof-of-concept, not machine learning.
